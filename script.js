@@ -9,6 +9,9 @@ let id = 1;
 const handleDeleteTask = (id) => {
     const task = document.querySelector(`.task-${id}`);
     task.remove();
+    const localTasks = getTaskFromLocalStorage();
+    const filteredTasks = localTasks?.filter(item => item.id !== id);
+    localStorage.setItem("tasks", JSON.stringify(filteredTasks));   
 }
 
 
