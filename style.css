@@ -27,7 +27,7 @@
     text-align: center;
     font-size: 4rem;
     padding: 20px 0px;
-    color: rgb(114, 100, 237);
+    color: rgb(35, 38, 240);
 }
 
 .input {
@@ -35,6 +35,7 @@
     width: 95%;
     position: relative;
     align-items: center;
+    margin: 0px auto;
   }
   
   .input__box {
@@ -74,4 +75,35 @@
   .input_submit:active {
     transform: scale(0.8);
     box-shadow: 0 0 5px black;
+  }
+
+  .task {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0px 1px 10px 0px rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  .task input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+
+  .task-text {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .option-btn {
+    position: absolute;
+    top: 33%;
+    right: 10px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
   }
