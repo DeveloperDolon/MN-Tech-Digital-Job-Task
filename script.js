@@ -11,14 +11,41 @@ const handleDeleteTask = (id) => {
     task.remove();
 }
 
+
+// task marking as completed functionality is here
 const handleCompleteTask = (id) => {
     const taskParent = document.querySelector(`.task-${id}`)
     const task = document.querySelector(`#task-checkbox-${id}`);
-    
+    const taskText = taskParent.querySelector(".task-text");
+
     if(task.checked) {
-        const taskText = taskParent.querySelector(".task-text");
         taskText.style.textDecoration = "line-through";
+    } else {    
+        taskText.style.textDecoration = "none";
     }
+}
+
+
+// task item get from localStorage
+const getTaskFromLocalStorage = () => {
+    const tasks = localStorage.getItem("tasks");
+    console.log(tasks)
+    if(tasks?.length > 0) {
+        return JSON.parse(tasks);
+    }
+
+    return [];
+}
+
+// task item add to localStorage
+const handleLocalStorageAddTask = (item) => {
+    const newTask = {
+        id: id,
+        task: item
+    }
+    const preTasks = getTaskFromLocalStorage();
+    
+    localStorage.setItem("tasks", JSON.stringify([...preTasks, newTask]));
 }
 
 
@@ -28,6 +55,8 @@ submitBtn.addEventListener("click", () => {
   const taskText = taskInput?.value;
 
   if (taskText?.length > 0) {
+    handleLocalStorageAddTask(taskText);
+
 
     const taskItem = document.createElement("div");
     taskItem.classList.add("task", `task-${id}`);
