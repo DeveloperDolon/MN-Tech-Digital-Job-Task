@@ -10,7 +10,7 @@
 /* all element styling */
 
 
-/*  */
+/* component styling start from here */
 
 .title-text {
     font-family: 'Rubik Burned', system-ui;
@@ -107,4 +107,20 @@
     background-color: white;
     border: none;
     cursor: pointer;
+  }
+
+
+  @media screen and (max-width: 900px) {
+    #task-container {
+      padding: 0px 10px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    #task-container {
+      padding: 0px 10px;
+    }
+    .input__box {
+      font-size: 16px;
+    }
   }
